@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 5.5.1 (402628)"/><meta name="author" content="hga"/><meta name="created" content="2014-07-15 06:42:45 +0000"/><meta name="updated" content="2014-07-15 14:39:37 +0000"/><title>Basic AngularJS Tutorial</title></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;">
+<div><br/></div>
+<table width="100%" bgcolor="#D4DDE5" border="0">
+<tr>
+<td>
+<h1>1) Introduction</h1>
+</td>
+</tr>
+</table>
+<span style="font-size: 18px;">"A client-side JavaScript Framework for adding interactivity to HTML"</span>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">How it works:</span></div>
+<div>
+<ul>
+<li><span style="font-size: 18px;">Initially you send a request to the server and you get a response with Webpage &amp; Assets<br/></span></li>
+<li><span style="font-size: 18px;">However, when the user clicks the link it only requests the information the user needs to refresh the page</span></li>
+</ul>
+<div><span style="font-size: 18px;"> But how do we tell the html when to reload? <font color="#1C39F6">Directives!</font></span></div>
+</div>
+<div><font color="#1C39F6" style="font-size: 18px;"><br/></font></div>
+<div><span style="font-size: 18px;">A Directive is a marker on a HTML tag that tells Angular to run or reference some Javascript Code.</span></div>
+<div><span style="font-size: 18px;">ex: </span></div>
+<div><span style="font-size: 18px;"><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">in</span><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">dex.html: &lt;body ng-controller="StoreController"></span> <i>This references a function written in app.'s called StoreController.</i></span></div>
+<div><span style="background-color: rgb(255, 250, 165); font-size: 18px;">app.js: function StoreController(){ alert('Welcome, Henok!'); };</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"> Getting Started:</span></div>
+<div><b><u style="font-size: 18px;">INDEX.HTML</u></b></div>
+<div><span style="font-size: 18px;"><b>     </b><i>&lt;html></i></span></div>
+<div><i style="font-size: 18px;">          &lt;head></i></div>
+<div><i style="font-size: 18px;">               &lt;link rel="stylesheet" type="text/css" href="bootstrap.min.css" /></i></div>
+<div><i style="font-size: 18px;">          &lt;/head></i></div>
+<div><i style="font-size: 18px;">          &lt;body></i></div>
+<div><i style="font-size: 18px;">               &lt;script type="text/javascript" src="angular.min.js">&lt;/script></i></div>
+<div><i style="font-size: 18px;">          &lt;/body></i></div>
+<div><i style="font-size: 18px;">     &lt;/html> </i></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Modules</span></div>
+<div>
+<ul>
+<li><span style="font-size: 18px;">Where we write pieces of Angular application.</span></li>
+<li><span style="font-size: 18px;">Where we define dependencies</span></li>
+</ul>
+<div><span style="font-size: 18px;"><b>EX: </b><i>app.js:</i> car app = angular.module('store', [ ]);</span></div>
+</div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">So if we include it in the html, it will treat the html inside of the element as part of the angular app. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Expressions:</span></div>
+<div>
+<ul>
+<li><span style="font-size: 18px;">Let you insert dynamic values into your HTML</span></li>
+</ul>
+<div><span style="font-size: 18px;"><b>EX: </b><i>index.html: </i>&lt;p> I am {{4+6}} &lt;/p> <b>-></b> &lt;p> I am 10 &lt;/p></span></div>
+</div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">So…</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><b><u style="font-size: 18px;">INDEX.HTML</u></b></div>
+<div>
+<div><span style="font-size: 18px;">     &lt;html <b>ng-app="store"</b>><br/></span></div>
+<div><span style="font-size: 18px;">          &lt;head></span></div>
+<div><span style="font-size: 18px;">               &lt;link rel="stylesheet" type="text/css" href="bootstrap.min.css" /></span></div>
+<div><span style="font-size: 18px;">          &lt;/head></span></div>
+<div><span style="font-size: 18px;">          &lt;body></span></div>
+<div><span style="font-size: 18px;">               &lt;script type="text/javascript" src="angular.min.js">&lt;/script></span></div>
+<div><span style="font-size: 18px;">               <b>&lt;p> {{"hello" + "you"}} &lt;/p></b></span></div>
+<div><span style="font-size: 18px;">          &lt;/body></span></div>
+<div><span style="font-size: 18px;">     &lt;/html> <br/></span></div>
+</div>
+<div><br/></div>
+<div>
+<hr/>
+<br/></div>
+<div><b style="font-size: 24px;">Controllers</b>: Where we define our apps behavior by defining functions and values.</div>
+<div><br/></div>
+<div><b><u style="font-size: 18px;">APP.JS</u></b></div>
+<div><span style="font-size: 18px;">(function(){<br/></span></div>
+<div><span style="font-size: 18px;">     var app = angular.module('store', [ ]);</span></div>
+<div><span style="font-size: 18px;">     app.controller('StoreController', function(){</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">     });</span></div>
+<div><span style="font-size: 18px;">})( );</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">move our gem into app.js</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div>
+<div><b><i><u style="font-size: 18px;">APP.JS</u></i></b></div>
+<div><i style="font-size: 18px;">(function(){<br/></i></div>
+<div><i style="font-size: 18px;">     var app = angular.module('store', [ ]);</i></div>
+<div><i style="font-size: 18px;">     app.controller('StoreController', function(){</i></div>
+<div><i style="font-size: 18px;">          <b>this.product = gem;</b></i></div>
+<div><i style="font-size: 18px;">     });</i></div>
+<div><i style="font-size: 18px;">     <b>var gem = {</b></i></div>
+<div><b><i style="font-size: 18px;">          name: 'Dodecahedron',</i></b></div>
+<div><b><i style="font-size: 18px;">          price: 2.95,</i></b></div>
+<div><b><i style="font-size: 18px;">          description: '. . . ',</i></b></div>
+<div><b><i style="font-size: 18px;">     }</i></b></div>
+<div><i style="font-size: 18px;">})( );</i></div>
+</div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">and in order for this to be shown in our HTML…</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><i><u><b style="font-size: 18px;">INDEX.HTML</b></u></i></div>
+<div><span style="font-size: 18px;"><i>&lt;</i>body></span></div>
+<div><b style="font-size: 18px;">     &lt;div ng-controller="StoreController as store"></b></div>
+<div><b style="font-size: 18px;"><br/></b></div>
+<div><span style="background-color: rgb(255, 250, 165); font-size: 18px;">STOP!!</span></div>
+<div><span style="font-size: 18px;">So…</span></div>
+<div><span style="font-size: 18px;">ng-controller is the <b>DIRECTIVE</b></span></div>
+<div><span style="font-size: 18px;">StoreController is the <b>CONTROLLER NAME</b></span></div>
+<div><span style="font-size: 18px;">as is as</span></div>
+<div><span style="font-size: 18px;">store is the <b>ALIAS </b></span></div>
+<div><b style="font-size: 18px;"><br/></b></div>
+<div><u><i><b style="font-size: 18px;">INDEX.HTML</b></i></u></div>
+<div><span style="font-size: 18px;"><i style="font-weight: normal;">&lt;body </i>ng-controller="StoreController as store"<i style="font-weight: normal;">></i></span></div>
+<div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">     &lt;div></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">          &lt;h1> {{store.product.name}} &lt;/h1></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">          &lt;h2> ${{store.product.price}} &lt;/h2></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">          &lt;p> {{store.product.description}} &lt;/p></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">     &lt;/div></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">     &lt;script type = "text/javascript" src="angular.min.js">&lt;/script></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">     &lt;script type = "text/javascript" src="app.js">&lt;/script></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;">&lt;/body></span></div>
+<div style="font-weight: normal; font-style: italic;"><span style="font-size: 18px;"><br/></span></div>
+<div style="font-weight: bold;"><span style="background-color: rgb(255, 250, 165); font-size: 18px;">WE ONLY HAVE ACCESS TO STORECONTROLLER IN THE DIV! THE SCOPE IS WITHIN THAT ELEMENT.</span></div>
+<div style="font-weight: bold;"><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;"><br/></span></div>
+<div style="font-weight: bold;">
+<hr/></div>
+<div><b><u style="font-size: 24px;">NgShow Directive</u></b></div>
+<div><br/></div>
+<div><span style="font-size: 18px;">Looking at the app.js file, we want to add a new key/value to our gem </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><u><b style="font-size: 18px;">APP.JS</b></u></div>
+<div><i style="font-size: 18px;">(function(){</i>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><i style="font-size: 18px;">     var app = angular.module('store', [ ]);</i></div>
+<div><i style="font-size: 18px;">     app.controller('StoreController', function(){</i></div>
+<div><i style="font-size: 18px;">          this.product = gem;</i></div>
+<div><i style="font-size: 18px;">     });</i></div>
+<div><i style="font-size: 18px;">     var gem = {</i></div>
+<div><i style="font-size: 18px;">          name: 'Dodecahedron',</i></div>
+<div><i style="font-size: 18px;">          price: 2.95,</i></div>
+<div><i style="font-size: 18px;">          description: '. . . ',</i></div>
+<div><i style="font-size: 18px;">          canPurchase: false</i></div>
+<div><i style="font-size: 18px;">     }</i></div>
+<div><i style="font-size: 18px;">})( );</i></div>
+</div>
+<div style="font-weight: bold;"><span style="background-color: rgb(255, 250, 165); font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">And we want a button to show up on the page if canPurchase is ONLY true. HOW WOULD WE DO THIS?</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><b><u style="font-size: 18px;">INDEX.HTML</u></b></div>
+<div><span style="font-size: 18px;"><i> &lt;body </i><i>ng-controller="StoreController as store"</i><i>></i></span></div>
+<div><i style="font-size: 18px;">     &lt;div></i></div>
+<div><i style="font-size: 18px;">          &lt;h1> {{store.<a href="http://product.name">product.name</a>}} &lt;/h1></i></div>
+<div><i style="font-size: 18px;">          &lt;h2> ${{store.product.price}} &lt;/h2></i></div>
+<div><i style="font-size: 18px;">          &lt;p> {{store.product.description}} &lt;/p></i></div>
+<div><i><b style="font-size: 18px;">          &lt;button ng-show="store.product.canPurchase"> Add to Cart &lt;/button></b></i></div>
+<div><i style="font-size: 18px;">     &lt;/div></i></div>
+<div><i style="font-size: 18px;">     &lt;script type = "text/javascript" src="angular.min.js">&lt;/script></i></div>
+<div><i style="font-size: 18px;">     &lt;script type = "text/javascript" src="app.js">&lt;/script></i></div>
+<div><i style="font-size: 18px;">&lt;/body></i></div>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><span style="background-color: rgb(255, 250, 165); font-size: 18px;">What this does is only display the element if the value of the expression is <b>TRUE</b></span></div>
+<div><span style="background-color: rgb(255, 250, 165); font-size: 18px;"><b><br/></b></span></div>
+<div><span style="font-size: 18px;">And if the item is sold out, we don't want to show it so we can also use no-show for that.</span></div>
+</div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div>
+<div><b><u style="font-size: 18px;">APP.JS</u></b></div>
+<div><i style="font-size: 18px;">(function(){</i>
+<div><i style="font-size: 18px;">     var app = angular.module('store', [ ]);</i></div>
+<div><i style="font-size: 18px;">     app.controller('StoreController', function(){</i></div>
+<div><i style="font-size: 18px;">          this.product = gem;</i></div>
+<div><i style="font-size: 18px;">     });</i></div>
+<div><i style="font-size: 18px;">     var gem = {</i></div>
+<div><i style="font-size: 18px;">          name: 'Dodecahedron',</i></div>
+<div><i style="font-size: 18px;">          price: 2.95,</i></div>
+<div><i style="font-size: 18px;">          description: '. . . ',</i></div>
+<div><i style="font-size: 18px;">          canPurchase: false,</i></div>
+<div><i><b style="font-size: 18px;">          soldOut: true</b></i></div>
+<div><i style="font-size: 18px;">     }</i></div>
+<div><i style="font-size: 18px;">})( );</i></div>
+</div>
+</div>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><b><u style="font-size: 18px;">INDEX.HTML</u></b></div>
+<div>
+<div><span style="font-size: 18px;"><i>&lt;body </i><i>ng-controller="StoreController as store"</i><i>></i></span></div>
+<div><i><b style="font-size: 18px;">     &lt;div ng-<span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">show</span>="<span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">!store.product.soldOut</span>"></b></i></div>
+<div><i style="font-size: 18px;">          &lt;h1> {{store.product.name}} &lt;/h1></i></div>
+<div><i style="font-size: 18px;">          &lt;h2> ${{store.product.price}} &lt;/h2></i></div>
+<div><i style="font-size: 18px;">          &lt;p> {{store.product.description}} &lt;/p></i></div>
+<div><i style="font-size: 18px;">          &lt;button ng-show="store.product.canPurchase"> Add to Cart &lt;/button></i></div>
+<div><i style="font-size: 18px;">     &lt;/div></i></div>
+<div><i style="font-size: 18px;">     &lt;script type = "text/javascript" src="angular.min.js">&lt;/script></i></div>
+<div><i style="font-size: 18px;">     &lt;script type = "text/javascript" src="app.js">&lt;/script></i></div>
+<div><i style="font-size: 18px;">&lt;/body></i></div>
+</div>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><b><u style="font-size: 18px;">OR</u></b></div>
+<div><b><u style="font-size: 18px;"><br/></u></b></div>
+<div>
+<div><span style="font-size: 18px;"><i>&lt;body </i><i>ng-controller="StoreController as store"</i><i>></i></span></div>
+<div><i><b style="font-size: 18px;">     &lt;div ng-<span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">hide</span>="<span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">store.product.soldOut</span>"></b></i></div>
+<div><i style="font-size: 18px;">          &lt;h1> {{store.product.name}} &lt;/h1></i></div>
+<div><i style="font-size: 18px;">          &lt;h2> ${{store.product.price}} &lt;/h2></i></div>
+<div><i style="font-size: 18px;">          &lt;p> {{store.product.description}} &lt;/p></i></div>
+<div><i style="font-size: 18px;">          &lt;button ng-show="store.product.canPurchase"> Add to Cart &lt;/button></i></div>
+<div><i style="font-size: 18px;">     &lt;/div></i></div>
+<div><i style="font-size: 18px;">     &lt;script type = "text/javascript" src="angular.min.js">&lt;/script></i></div>
+<div><i style="font-size: 18px;">     &lt;script type = "text/javascript" src="app.js">&lt;/script></i></div>
+<div><i style="font-size: 18px;">&lt;/body></i></div>
+</div>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><span style="font-size: 18px;">The hide and show do the same thing, hide is just more readable.</span></div>
+<div><br/></div>
+<div>
+<hr/>
+<br/></div>
+<div><b style="font-size: 24px;">Ng-repeat</b></div>
+<div><br/></div>
+<div><span style="font-size: 18px;">This basically loops through the array for you. store.products is the array to iterate over. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><b><u style="font-size: 18px;">INDEX.HTML</u></b></div>
+<div><span style="font-size: 18px;">&lt;body ng-controller="StoreController as store"></span></div>
+<div><b style="font-size: 18px;">     <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">&lt;div</span><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">ng-repeat="product in store.products"</span>></b></div>
+<div><span style="font-size: 18px;">        <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">  <b>&lt;h1> {{product.name}} &lt;/h1></b></span></span></div>
+<div><b style="background-color: rgb(255, 250, 165); font-size: 18px;">          &lt;h2> ${{product.price}} &lt;/h2></b></div>
+<div><b style="background-color: rgb(255, 250, 165); font-size: 18px;">          &lt;p> {{product.description}} &lt;/p></b></div>
+<div><span style="font-size: 18px;">          &lt;button ng-show="store.product.canPurchase"> Add to Cart &lt;/button></span></div>
+<div><span style="font-size: 18px;">     &lt;/div></span></div>
+<div><span style="font-size: 18px;">     &lt;script type = "text/javascript" src="angular.min.js">&lt;/script></span></div>
+<div><span style="font-size: 18px;">     &lt;script type = "text/javascript" src="app.js">&lt;/script></span></div>
+<div><span style="font-size: 18px;">&lt;/body></span></div>
+<div>
+<hr/></div>
+<div><br/></div>
+<div><span style="font-size: 24px;"><img src="/Basic%20AngularJS%20Tutorial.resources/c5e0994902f8858e32131106e71bd35b.png" height="443" width="877"/><br/></span></div>
+<table width="100%" bgcolor="#D4DDE5" border="0">
+<tr>
+<td>
+<h1>2) Filters, Directives, and Cleaner Code</h1>
+</td>
+</tr>
+</table>
+<span style="font-size: 18px;"><br/></span>
+<div><span style="font-size: 18px;">A little review…</span>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><b>ng-app</b>: Attach the Application Module to the page</span></div>
+<div><i style="font-size: 18px;">&lt;html ng-app = "store"></i></div>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><span style="font-size: 18px;"><b>ng-controller</b>: Attach a Controller function to the page</span></div>
+<div><i style="font-size: 18px;">&lt;body ng-controller = "StoreController as store"></i></div>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><span style="font-size: 18px;"><b>ng-show/ng-hide</b>: Display a section based on an Expression</span></div>
+<div><i style="font-size: 18px;">&lt;h1 ng-show = "name"> Hello, {{name}}! &lt;/h1></i></div>
+<div><i style="font-size: 18px;"><br/></i></div>
+<div><span style="font-size: 18px;"><b>ng-repeat</b>: Repeat a section for each item in an Array</span></div>
+<div><i style="font-size: 18px;">&lt;li ng-repeat="product in store.products"> {{product.name}} &lt;/li></i></div>
+<div><i><br/></i></div>
+<div>
+<hr/></div>
+<div><i><br/></i></div>
+<div><b style="font-size: 24px;"><u>Our First Filter</u></b></div>
+<div><b><br/></b></div>
+<div><i style="font-size: 18px;">&lt;em  class="pull-right"> {{product.price | currency }} &lt;/em></i></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">The currency formats this into currency because the | (pipe) sends the output into the currency filter.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><b>Example other filters:</b> date, upper/lower case, limitTo (limit number of characters or limit number of products by passing in "product in store.products | limitTo:3"), orderBy (-price = descending)</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><b style="font-size: 18px;"><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">ng-src</span> lets you dynamically load images and other things</b></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div>
+<hr/>
+<b style="font-size: 18px;">New Directives</b></div>
+<div><b style="font-size: 18px;"><br/></b></div>
+<div><span style="font-size: 18px;"><b>ng-init: </b><i>will initialize values in that score.</i></span></div>
+<div><span style="font-size: 18px;"><b>ng-class: </b><i>will send lots of stuff but lets just send in an object. We specify the name of class that we want to set things to and then a condition that if it is satisfied, the class will be appended to that element.</i></span></div>
+<div> </div>
+<div>
+<hr/>
+<br/></div>
+<div><span style="font-size: 24px;">Cleaning the Code</span></div>
+<div><br/></div>
+<div><img src="Basic%20AngularJS%20Tutorial.resources/a52ee488902f7e9e94cb7a3854c86a9f.png" height="373" width="548"/><br/></div>
+<div><br/></div>
+<div><span style="font-size: 18px;">This code is messy with a lot of logic within the elements. We need to make a controller that takes a lot of this out.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Firstly, init is good for prototyping but not for actual application, so that needs to go. Also, we make functions in javascript for all of the ng-show and ng-click.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/63767e1fe466956c518a16d3f24e457e.png" height="440" width="995"/><br/></span></div>
+<div><b style="font-size: 18px;">Here, we have the functions selectTab and isSelected that take the logic out of the index.html and create easier to understand code.</b></div>
+<div><br/></div>
+<table width="100%" bgcolor="#D4DDE5" border="0">
+<tr>
+<td>
+<h1>3) Forms, Models, and Validations</h1>
+</td>
+</tr>
+</table>
+<b style="font-size: 24px;">Writing out our Review Form</b>
+<div><b style="font-size: 18px;"><br/></b></div>
+<div><b style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/df0d69988545dcc33b3701d0e4a90d44.png" height="403" width="880"/><br/></b></div>
+<div><b style="font-size: 18px;"><br/></b></div>
+<div><span style="font-size: 18px;"> This is the general code to write a form. There is a drop down selector followed by a text area to write a short review and a place for them to identify via email.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true; font-size: 18px;">Now, if we want to add the live preview code, we will have to bind the stars and review to the form element. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/a790b65408ff1eb3192d06250a7fe831.png" height="526" width="855"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">What ng-model gives us is the ability to bind form element values to the property we want. <b>Ng-model</b> basically assigns review.stars a value which can be called in the future.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Before we move forward onto that, some more examples of two way data binding is as follows.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/635d2445410b1cc3e5e63bb15c01195e.png" height="495" width="869"/><br/></span></div>
+<div>
+<hr/>
+<span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">However, in order to save the  review form made with ng-model, we need to make a ReviewController. This controller will manage the submission of a review through <b>NG-SUBMIT</b> which allows a method to be executed on submission of a form (in the case below, it would run the addReview function that is in the ReviewController).</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/df091d6c649be724c4bb6bc5e69c4270.png" height="532" width="868"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">As shown in the picture, don't forget to clear the review!</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div>
+<hr/>
+<span style="font-size: 18px;"><br/></span></div>
+<div><b style="font-size: 24px;">Validations</b></div>
+<div><b style="font-size: 18px;"><br/></b></div>
+<div><span style="font-size: 18px;">We have to run no validate in our form tag to turn off default html tag.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Also, we need to add "required" to each form field that is required.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Finally, notice that the form has a name attribute and use a built in angular validation "$valid" to test whether the form is allowed to be submitted.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/f9645f826c13905f53d499d072d66150.png" height="362" width="897"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">The best part of this is that, even without us raising a finger, the form validator checks to make sure our email is a not only filled in but that our email is also a valid email. And while this is all fine and dandy, the form <b>will still submit if the email is not a valid email</b> (or basically, if the reviewForm.$valid is false). So in order to fix that, throw in a <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">reviewForm.$valid in the submit protocol.</span></span></div>
+<div><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true; font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/002d37e0df68ca661c23b601d4dded90.png" height="287" width="898"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">But, what is really crazy is how the input tag's classes work in the background with validity!!!</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">The source before you start typing has class ng-pristine and ng-invalid which means that the field is empty and also invalid. As you start typing, the field takes on the class ng-dirty which means there is information with in but it is still invalid. After you finish typing with a valid email, the ng-invalid turns to ng-valid. What?!! Crazy. Wow.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/cfdbb7cfe4e453cf5e50b2f4341b51c0.png" height="543" width="990"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">To make things look a lot prettier, you can throw in some CSS to have borders around your inputs.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/313d298826be66b0eccc28cc15c8d889.png" height="221" width="961"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">And if all of this validation trickery isn't already enough to make you excited, Angular JS has even more built in.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/a004625244c9e40ecc010186223ff108.png" height="379" width="889"/></span><br/></div>
+<table width="100%" bgcolor="#D4DDE5" border="0">
+<tr>
+<td>
+<h1>5) Creating a Directive with an Associated Controller</h1>
+</td>
+</tr>
+</table>
+<span style="font-size: 18px;">First, we start off by de-cluttering some code that we have seen in the past. </span>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/445e284b710af25c2c244c666ae1ef94.png" height="223" width="836"/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">This code snippet is, or could be, reused in multiple locations in our code. For good practice, we want to pull out that duplicate code and put it into a new file. Using <b>NG-INCLU</b><b>DE</b>, which takes two sets of quotes (because the value you give it is a string, which is a the name of a file. Look below:</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/6ea974b9819de10c921253ab84162c20.png" height="466" width="844"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">The first box is the new code which has the name of the file to be included with the NG-INCLUDE directive. The <b>second box</b> has what code we moved from the original html. The <b>third box</b> is what code is basically produced when the include is ran. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">When it is loads, it loads differently than it otherwise would have prior to our changes. It initially sends a web-request and requests one html file and pulls it down. Then when it reaches the NG-INCLUDE, it pulls the file name and sends an AJAX request and pulls that specific code down.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">But now we run into an interesting idea, we could use ng-include to pull this information but why not instead use a custom directive. Confused as to what it is? Look below. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/d9f964274e41edfcb8a9d73eacec58bf.png" height="197" width="851"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">A custom directive basically allows you to write HTML, which typically only tells you about the structure, that expresses the behavior of your application. <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">WOW!!!</span></span></div>
+<div><span style="background-color:rgb(255, 250, 165);-evernote-highlight:true; font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Here is an example of custom directives in action.</span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/8c7827106f49250e4e4e3e5253581918.png" height="362" width="513"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">So, how do you write one of these so-called <i>custom directives?</i></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">What you do is you go into your javascript file and make, just like a controller, a directive using <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">app.directive</span> which would take the camelCase of the html dash separated tag.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/dbc4172f9022f41ecad6c814500b8514.png" height="285" width="844"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Now the second part of the directive's parameters is an anonymous function which returns a directive definition object (Less fancy jargon: a configuration on how the directive will work).</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/7f0b19186277b0a432f591eedb0538d9.png" height="168" width="832"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">In a basic example, we would just want this directive to load up the code we put into our product-title.html file before. In order to do this, we need to define what TYPE of directive it is, and the url that it needs to access.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">We use type E since we are declaring a new HTML element. The templateUrl is just the url that we want to load onto the page. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/542de3bd9ecb448d88cfcb9e0fdbb042.png" height="176" width="841"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Now, the directive is an <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">Element directive</span> so some of you may be thinking "Why don't we just use a self-closing tag?" Well, some browsers have problems with self closing tags on custom elements so in order to be safe we shy away from that in Angular. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/1e4dff646d18f8253c556b71e070ba30.png" height="183" width="886"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">But element directives aren't the only kinds. There are also Attribute Directives where you specify the name as an attribute within another element. However, its best to use element directives for UI and attribute directives when you add behaviors to HTML. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">This is what it would look like if we wanted to make an Attribute Directive. </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/6a13d42cde2071958c016f945757dc81.png" height="393" width="846"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div>
+<hr/>
+<br/></div>
+<div><span style="font-size: 24px;">What if we <i>need</i> a Controller?</span></div>
+<div><span style="font-size: 24px;"><br/></span></div>
+<div><span style="font-size: 18px;">This is also a piece of code that we can compress as well.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/433a9c705baaa5946d9286f30f2455dc.png" height="190" width="853"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Since this has a controller it could get more tricky… lets see what we can do.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">We moved the HTML into its own file "product-panels.html" and here are what the index.html and app.js look like: </span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/d3e3664d52f2997152724f4c0002fb2b.png" height="313" width="773"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">Close… but we don't want to copy and paste the ng-controller attribute to every element directive that we make. How do we solve this you might ask?? Magic! Or, Angular. Those are pretty much synonyms now.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">First, we need to move the functionality of the controller within the directive or else we can't make it a PART of the directive!</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/89b3754a5b750b1bdbb851f0397d1159.png" height="463" width="849"/><br/></span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;">In order to do this, we move the functionality by using the "controller" key word and where the … is the code that was in the app.controller. We then also need to define the alias within the directive to be able to use the controller.</span></div>
+<div><span style="font-size: 18px;"><br/></span></div>
+<div><span style="font-size: 18px;"><img src="Basic%20AngularJS%20Tutorial.resources/822c80183acae7b28ae8dd2a7c4b44e7.png" height="441" width="842"/><br/></span></div>
+<table width="100%" bgcolor="#D4DDE5" border="0">
+<tr>
+<td>
+<h1>6) Dependencies and Services</h1>
+</td>
+</tr>
+</table>
+Can we refactor our Javascript application??
+<div><br/>
+<div>We can! Let's pull out, for instance, all of our product related directives. Bring them to a new file and create a new module called "store-products" instead of just the generic store module that we had before.</div>
+</div>
+<div><br/></div>
+<div><img src="Basic%20AngularJS%20Tutorial.resources/8d4dd02a0557cd9e3346329fdb45045e.png" height="420" width="994"/><br/></div>
+<div><br/></div>
+<div>Now, we need to tell our <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">STORE</span> module that it depends on our <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">store-products</span> module. Finally, we fill the blank array!!! Lets also not forget to <span style="background-color:rgb(255, 250, 165);-evernote-highlight:true;">link</span> the products.js in the index.html file!</div>
+<div><br/></div>
+<div><br/></div>
+<div>It is based to split up modules based on functionality. For example products, shopping cart, etc.</div>
+<div><br/></div>
+<div>
+<hr/>
+<br/></div>
+<div><span style="font-size: 24px;">Further References</span></div>
+<div><br/></div>
+<div><br/></div>
+<div>https://docs.angular.</div>
+<div>www.egghead.io</div>
+<div>thinkster.io </div>
+<div>kapeli.com/dash</div>
+<div>codeschool.com/paths/javascript</div>
+<div>docs.angularjs.org/tutorial</div>
+<div><br/></div>
+</div>
+</body></html>
